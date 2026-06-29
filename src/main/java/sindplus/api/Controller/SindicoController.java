@@ -1,6 +1,7 @@
 package sindplus.api.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,18 +24,29 @@ import sindplus.api.model.sindico.SindicoRepository;
 public class SindicoController {
     @Autowired
     private SindicoRepository repository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping("/cadastro")
     @Transactional
     public void cadastrarSindico(@RequestBody DadosCadastroSindico dados) {
-        Sindico sindico = new Sindico(dados);
+        Sindico sindico = new Sindico();
+        sindico.setNome(dados.nome());
+        sindico.setEmail(dados.email());
+        sindico.setSenha(passwordEncoder.encode(dados.senha()));
         repository.save(sindico);
     }
 
-    @GetMapping
-    public Sindico buscarPorId(@RequestParam Integer sindicoId) {
-        return repository.findById(sindicoId).orElse(null);
+    @GetMapping("id/{id}")
+    public Sindico buscarPorId(@PathVariable Integer id) {
+        return repository.findById(id).orElse(null);
     }
+
+    @GetMapping
+    public Sindico buscarPorEmail(@RequestParam String email) {
+        return repository.findByEmail(email).orElse(null);
+    }
+
 
     @PutMapping("atualizar")
     @Transactional

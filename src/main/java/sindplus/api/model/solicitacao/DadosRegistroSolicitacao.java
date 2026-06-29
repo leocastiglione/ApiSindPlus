@@ -10,6 +10,7 @@ public record DadosRegistroSolicitacao(
 		LocalDateTime dataSolicitacao, 
 		Integer condominioId, 
 		Integer moradorId, 
-		Status status) {
+		Status status,
+		Categoria categoria) {
 
 }

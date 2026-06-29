@@ -43,10 +43,12 @@ public class Solicitacao {
     private LocalDateTime dataResposta;
     @Enumerated(EnumType.STRING)
     private Status status;
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
 
     public Solicitacao(DadosRegistroSolicitacao dados) {
         this.descricaoSolicitacao = dados.descricaoSolicitacao();
+        this.categoria = dados.categoria();
     }
-
 
 }

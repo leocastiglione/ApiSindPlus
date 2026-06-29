@@ -32,6 +32,7 @@ public class Comunicado {
     @ManyToOne
     @JoinColumn(name = "condominioId")
     private Condominio condominio;
+    private String tituloDoComunicado;
     private String conteudoDoComunicado;
     private LocalDateTime data;
 

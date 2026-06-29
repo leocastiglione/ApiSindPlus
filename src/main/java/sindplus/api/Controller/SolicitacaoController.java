@@ -39,6 +39,7 @@ public class SolicitacaoController {
 		solicitacao.setMorador(morador);
 		solicitacao.setCondominio(morador.getCondominio());
 		solicitacao.setStatus(Status.ABERTO);
+		solicitacao.setCategoria(dados.categoria());
 		solicitacaoRepository.save(solicitacao);
 	}
 

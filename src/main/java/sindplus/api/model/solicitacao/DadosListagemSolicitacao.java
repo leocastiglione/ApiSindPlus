@@ -11,6 +11,7 @@ public record DadosListagemSolicitacao(
     Integer moradorId,
     String moradorUnidade,
     Status status,
+    Categoria categoria,
     String respostaSolicitacao
 ) {
 
@@ -23,6 +24,7 @@ public record DadosListagemSolicitacao(
             solicitacao.getMorador().getId(),
             solicitacao.getMorador().getUnidade(),
             solicitacao.getStatus(),
+            solicitacao.getCategoria(),
             solicitacao.getRespostaSolicitacao()
         );
     }
