@@ -37,11 +37,13 @@ public class Sindico implements UserDetails{
     private String email;
     private String senha;
     private Boolean ativo = true;
+    private String perfil;
 
     public Sindico(DadosCadastroSindico dados) {
         this.nome = dados.nome();
         this.email = dados.email();
         this.senha = dados.senha();
+        this.perfil = dados.perfil();
         
     }
 

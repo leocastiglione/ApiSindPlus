@@ -7,8 +7,8 @@ import sindplus.api.model.condominio.Condominio;
 public record DadosListagemComunicado(
 		Integer id,		
 		Condominio condominio,
-		String tituloComunicado,
-		String conteudoComunicado, 
+		String tituloDoComunicado,
+		String conteudoDoComunicado, 
 		LocalDateTime data
 		
 ) {

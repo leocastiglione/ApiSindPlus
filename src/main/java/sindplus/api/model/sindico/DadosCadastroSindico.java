@@ -9,7 +9,9 @@ public record DadosCadastroSindico(
 		
 		@Email @NotBlank String email,
 		
-		@NotBlank String senha
+		@NotBlank String senha,
+		
+		String perfil
 ) {
 
 }

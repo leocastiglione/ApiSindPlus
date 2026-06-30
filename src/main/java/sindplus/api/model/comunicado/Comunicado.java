@@ -37,7 +37,8 @@ public class Comunicado {
     private LocalDateTime data;
 
     public Comunicado(DadosRegistroComunicado dados) {
-        this.conteudoDoComunicado = dados.conteudoComunicado();
+    	this.tituloDoComunicado = dados.tituloDoComunicado();
+        this.conteudoDoComunicado = dados.conteudoDoComunicado();
     }
 
 

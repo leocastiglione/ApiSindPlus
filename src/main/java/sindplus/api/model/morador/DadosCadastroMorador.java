@@ -6,9 +6,10 @@ import jakarta.validation.constraints.NotBlank;
 public record DadosCadastroMorador(
 		@NotBlank String nome, 
 		@NotBlank @Email String email, 
-		String senha, 
+		@NotBlank String senha, 
 		String unidade, 
-		Integer condominioId
+		Integer condominioId,
+		String perfil
 ) {
 
 }

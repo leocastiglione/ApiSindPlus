@@ -40,7 +40,7 @@ public class CondominioController {
         condoRepository.save(condominio);
     }
 
-    @GetMapping({"/listar"})
+    @GetMapping("/listar")
     public List<DadosListagemCondominio> listar() {
         return condoRepository.findAll().stream().map(DadosListagemCondominio::new).toList();
     }
@@ -50,14 +50,20 @@ public class CondominioController {
         return condoRepository.findBySindicoId(sindicoId).stream().map(DadosListagemCondominio::new).toList();
     }
 
-    @PutMapping({"atualizar"})
+    @GetMapping("listarPorCondominioId")
+    public List<DadosListagemCondominio> listarPorCondominioId(@RequestParam Integer id) {
+        return condoRepository.findById(id).stream().map(DadosListagemCondominio::new).toList();
+    }
+
+
+    @PutMapping("atualizar")
     @Transactional
     public void atualizar(@RequestBody DadosAtualizacaoCondominio dados) {
         Condominio condominio = (Condominio)this.condoRepository.getReferenceById(dados.id());
         condominio.alterarDados(dados);
     }
 
-    @DeleteMapping({"alterar-status/{id}"})    
+    @DeleteMapping("alterar-status/{id}")    
     @Transactional
     public void alterarStatus(@PathVariable Integer id) {
         Condominio condominio = (Condominio)this.condoRepository.getReferenceById(id);

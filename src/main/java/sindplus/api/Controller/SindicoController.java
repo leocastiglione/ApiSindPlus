@@ -33,6 +33,7 @@ public class SindicoController {
         Sindico sindico = new Sindico();
         sindico.setNome(dados.nome());
         sindico.setEmail(dados.email());
+        sindico.setPerfil(dados.perfil());
         sindico.setSenha(passwordEncoder.encode(dados.senha()));
         repository.save(sindico);
     }

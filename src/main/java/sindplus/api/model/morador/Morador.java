@@ -41,6 +41,7 @@ public class Morador implements UserDetails {
     @JoinColumn(name = "condominioId")
     private Condominio condominio;
     private Boolean ativo = true;
+    private String perfil;
 
     public Morador(DadosCadastroMorador dados) {
         this.nome = dados.nome();

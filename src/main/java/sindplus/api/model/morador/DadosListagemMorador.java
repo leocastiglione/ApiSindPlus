@@ -7,10 +7,11 @@ public record DadosListagemMorador(
 		String nome, 
 		String email, 
 		String unidade, 
-		Condominio condominio
+		Condominio condominio,
+		String perfil
 ) {
 	public DadosListagemMorador(Morador morador) {
-        this(morador.getId(), morador.getNome(), morador.getEmail(), morador.getUnidade(), morador.getCondominio());
+        this(morador.getId(), morador.getNome(), morador.getEmail(), morador.getUnidade(), morador.getCondominio(), morador.getPerfil());
     }
 
 }
