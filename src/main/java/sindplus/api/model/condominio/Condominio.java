@@ -32,10 +32,12 @@ public class Condominio {
     private String nome;
     private String endereco;
     private String email;
+    private Boolean ativo = true;
+    
     @ManyToOne
     @JoinColumn(name = "sindicoId")
     private Sindico sindico;
-    private Boolean ativo = true;
+    
 
     public Condominio(DadosCadastroCondominio dados) {
         this.cnpj = dados.cnpj();
@@ -67,6 +69,5 @@ public class Condominio {
     public void exclusaoLogica() {
         this.ativo = false;
     }
-
 
 }

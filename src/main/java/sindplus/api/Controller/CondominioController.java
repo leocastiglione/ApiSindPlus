@@ -55,7 +55,6 @@ public class CondominioController {
         return condoRepository.findById(id).stream().map(DadosListagemCondominio::new).toList();
     }
 
-
     @PutMapping("atualizar")
     @Transactional
     public void atualizar(@RequestBody DadosAtualizacaoCondominio dados) {
@@ -69,5 +68,4 @@ public class CondominioController {
         Condominio condominio = (Condominio)this.condoRepository.getReferenceById(id);
         condominio.exclusaoLogica();
     }
-
 }
